@@ -34,10 +34,15 @@ class App extends Component {
       ]
 
 }
+
+updateItemList = (item) => {
+  console.log('the item is: ', item);
+  this.setState({ items: this.state.items.concat(item) })
+}
     render () {
       return (
       <div className="App">
-        <ShoppingCart date={this.state.copyright} items ={this.state.items} products = {this.state.products}/>
+        <ShoppingCart date={this.state.copyright} items ={this.state.items} products = {this.state.products} updateItemFunc={this.updateItemList}/>
       </div>
     );
   }

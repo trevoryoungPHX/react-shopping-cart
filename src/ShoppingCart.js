@@ -10,7 +10,9 @@ class ShoppingCart extends Component {
     <div>
       <CartHeader />
       <CartItems items = {this.props.items}/>
-      <AddItem products={ this.props.products } itemAdded={ this.handleItemAdded }  />
+      <AddItem products={ this.props.products }
+         itemAdded={ this.handleItemAdded }
+        addItemListFunc={this.props.updateItemFunc} />
       <CartFooter date ={this.props.date}/>
     </div>
   );
