@@ -7,8 +7,9 @@ class AddItem extends Component {
   }
 
   handleSubmit = (e) => {
+    console.log(this.state.product);
     e.preventDefault();
-    this.props.addItemListFunc(this.state.product)
+    this.props.addItemListFunc(this.state.product, this.state.quantity)
   }
 
   handleProductList = (e) => {
