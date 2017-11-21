@@ -15,10 +15,11 @@ class App extends Component {
     ])
       .then(responses => Promise.all(responses.map(res=>res.json())))
       .then(arr => {
-        const [products, rawItems] = arr
+        const products = arr[0]
+        const rawItems = arr[1]
         const items = rawItems.map(item=>({
           id: item.id,
-          product: products.find(p=>p.id===item.product_id),
+          product: products.find(p=>p.id===item.product_id), //look through product array, find the one that has the same ID, I want that to be the value of the product key. Find is a HOF, like filter, but guaranteed to only find one result. 
           quantity: item.quantity
         }))
         this.setState({...this.state, products, items})

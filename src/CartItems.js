@@ -19,6 +19,7 @@ const CartItems = (props) => {
           {itemsList}
         </div>
         <h3>Total: {finalTotal}</h3>
+        <h5><b><i>ADD ITEM:</i></b></h5>
     </div>
   )
 }
