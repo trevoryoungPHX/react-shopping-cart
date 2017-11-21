@@ -41,7 +41,7 @@ class AddItem extends Component {
               value={this.state.product}
               onChange={this.handleProductsList}
             >
-              <option disabled>Choose Product</option>
+              <option selected>Choose Product</option>
               {productList}
             </select>
             </div>
@@ -51,7 +51,7 @@ class AddItem extends Component {
               value={this.state.quantity}
               onChange={this.handleQuantity}
             >
-              <option disabled>Select Quantity</option>
+              <option selected>Select Quantity</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
