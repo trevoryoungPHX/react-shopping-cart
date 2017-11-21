@@ -1,23 +1,21 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 import CartHeader from './CartHeader'
-import CartFooter from './CartFooter'
 import CartItems from './CartItems'
-import AddItem from "./AddItem"
+import AddItem from './AddItem'
+import CartFooter from './CartFooter'
 
 class ShoppingCart extends Component {
+
   render() {
-  return (
-    <div>
-      <CartHeader />
-      <CartItems items = {this.props.items}
-                total = {this.props.total}/>
-      <AddItem products={ this.props.products }
-                itemAdded={ this.handleItemAdded }
-                addItemListFunc={this.props.updateItemFunc} />
-      <CartFooter date ={this.props.date}/>
-    </div>
-  );
-}
+    return (
+      <div>
+        <CartHeader />
+        <CartItems items={this.props.items}/>
+        <AddItem products={ this.props.products } itemAdded={ this.props.handleItemAdded }  />
+        <CartFooter year={this.props.year}/>
+      </div>
+    )
+  }
 }
 
-export default ShoppingCart;
+export default ShoppingCart

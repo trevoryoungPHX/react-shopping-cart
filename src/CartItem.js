@@ -1,14 +1,16 @@
-import React from "react"
+import React from 'react';
 
-
-const CartItem = ({item}) => {
+const CartItem = (props) => {
+  let { name, priceInCents } = props.theItem.product;
   return (
-    <div className="row">
-      <div className="col s8">{item.product.name}</div>
-      <div className="col s2">${(item.product.priceInCents /100).toFixed(2)}</div>
-      <div className="col s2">{item.quantity}</div>
+    <div className="collection-item">
+      <div className="row">
+        <div className="col s8">{name}</div>
+        <div className="col s2">${(priceInCents/100).toFixed(2)}</div>
+        <div className="col s2">{props.theItem.quantity}</div>
+      </div>
     </div>
-  );
+  )
 }
 
 export default CartItem;

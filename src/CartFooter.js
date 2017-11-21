@@ -1,6 +1,7 @@
-import React from "react"
 
-const CartFooter = (props) => {
+import React from 'react';
+
+const CartFooter = ({year}) => {
   return (
     <footer className="page-footer">
       <div className="container">
@@ -12,11 +13,11 @@ const CartFooter = (props) => {
       </div>
       <div className="footer-copyright">
         <div className="container">
-          &copy; {props.date}
+          &copy; {year}
         </div>
       </div>
     </footer>
-  );
+  )
 }
 
 export default CartFooter;
