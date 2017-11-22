@@ -3,11 +3,10 @@ import CartItem from './CartItem'
 
 const CartItems = (props) => {
   let itemsList = props.items.map(item => <CartItem key={item.id} theItem={item}/>)
+  console.log('props.items:', props.items)
   let total = props.items.reduce((sum, item) => sum + (item.product.priceInCents * item.quantity), 0)
   let finalTotal = (total/100).toFixed(2)
-
   return (
-
       <div className="container">
         <h1>Items</h1>
         <div className="collection">
@@ -23,5 +22,4 @@ const CartItems = (props) => {
     </div>
   )
 }
-
 export default CartItems;

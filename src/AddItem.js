@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class AddItem extends Component {
 
   state = {
-    product: 0,
+    product_id: 0,
     quantity: 0
   }
 
@@ -13,11 +13,11 @@ class AddItem extends Component {
   }
 
   handleProductsList = (e) => {
-    this.setState({ product: e.target.value })
+    this.setState({ product_id: parseInt(e.target.value) })
   }
 
   handleQuantity = (e) => {
-    this.setState({ quantity: e.target.value })
+    this.setState({ quantity: parseInt(e.target.value) })
   }
 
   render () {
@@ -38,7 +38,7 @@ class AddItem extends Component {
             <div className="col s5">
             <select
               className="browser-default"
-              value={this.state.product}
+              value={this.state.product_id}
               onChange={this.handleProductsList}
             >
               <option selected>Choose Product</option>

@@ -19,21 +19,32 @@ class App extends Component {
         const rawItems = arr[1]
         const items = rawItems.map(item=>({
           id: item.id,
-          product: products.find(p=>p.id===item.product_id), //look through product array, find the one that has the same ID, I want that to be the value of the product key. Find is a HOF, like filter, but guaranteed to only find one result. 
+          product: products.find(p=>p.id===item.product_id), //look through product array, find the one that has the same ID, I want that to be the value of the product key. Find is a HOF, like filter, but guaranteed to only find one result.
           quantity: item.quantity
         }))
         this.setState({...this.state, products, items})
       })
   }
 
-  handleItemAdded = (item) => {
-    let selectedProduct = this.state.products.filter(product => product.id == item.product)[0];
-    let newItem = {
-      quantity: item.quantity,
-      product: selectedProduct
-    }
-    this.setState({items: this.state.items.concat(newItem)})
-
+  handleItemAdded = async (item) =>  {
+    let postResponse = await fetch('http://localhost:8000/items', {
+      method: 'POST',
+      body: JSON.stringify(item),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }
+    })
+    let data = await postResponse.json();
+    //babs
+    const items = data.map(item=>({
+      id: item.id,
+      product: this.state.products.find(p=>p.id===item.product_id), //look through product array, find the one that has the same ID, I want that to be the value of the product key. Find is a HOF, like filter, but guaranteed to only find one result.
+      quantity: item.quantity
+    }))
+    //babs
+    console.log("data:", data);
+    this.setState({items: items})
   }
 
   render() {
